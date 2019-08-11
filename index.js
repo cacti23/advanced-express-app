@@ -1,42 +1,47 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cookieSession = require('cookie-session');
-const passport = require('passport');
-const bodyParser = require('body-parser');
-const keys = require('./config/keys');
+// Dependencies
+require('dotenv').config()
+require('module-alias/register')
+const express = require('express')
+const mongoose = require('mongoose')
+const cookieSession = require('cookie-session')
+const passport = require('passport')
+const bodyParser = require('body-parser')
+const { mongoURI, cookieKey } = require('@config/keys')
+const path = require('path')
 
-require('./models/User');
-require('./models/Blog');
-require('./services/passport');
+// DB and Passport
+require('@models/User')
+require('@models/Blog')
+require('@services/passport')
 
-mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI, { useMongoClient: true });
+// Routes
+const setupAuthRoutes = require('@routes/authRoutes')
+const setupBlogRoutes = require('@routes/blogRoutes')
 
-const app = express();
+// Server and DB Settings
+const PORT = process.env.PORT
+mongoose.Promise = global.Promise
+mongoose.connect(mongoURI, { useNewUrlParser: true })
+const app = express()
 
-app.use(bodyParser.json());
-app.use(
-  cookieSession({
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    keys: [keys.cookieKey]
-  })
-);
-app.use(passport.initialize());
-app.use(passport.session());
+// Server middleware
+app.use(bodyParser.json())
+app.use(cookieSession({
+  maxAge: 30 * 24 * 60 * 60 * 1000,
+  keys: [cookieKey]
+}))
+app.use(passport.initialize())
+app.use(passport.session())
 
-require('./routes/authRoutes')(app);
-require('./routes/blogRoutes')(app);
+// Server Routes
+setupAuthRoutes(app)
+setupBlogRoutes(app)
 
+// Production-only settings
 if (['production'].includes(process.env.NODE_ENV)) {
-  app.use(express.static('client/build'));
-
-  const path = require('path');
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve('client', 'build', 'index.html'));
-  });
+  app.use(express.static('client/build'))
+  app.get('*', (req, res) => res.sendFile(path.resolve('client', 'build', 'index.html')))
 }
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Listening on port`, PORT);
-});
+// Start Server
+app.listen(PORT, () => console.log(`Listening on port`, PORT))

@@ -9,7 +9,7 @@ This repository is for exploring advanced node concepts for production deploymen
 - Run scripts with:
   - `yarn dev`
   - `yarn build`
-  - `yar start`
+  - `yanr start`
 
 ### Updates in server
 
@@ -19,11 +19,12 @@ This repository is for exploring advanced node concepts for production deploymen
 - Required versions set in `.package.json`:
   - `yarn`: `^1.17.0`
   - `node`: `^12.7.0`
-- Add support for `module-alias`
+- Add support for `module-alias` to allow aliasing of modules in `require()`
 - Switch to `.env` files for managing keys
+  - Check `.env.placeholder` for setup
 - Remove semicolons in `.js`
 - Add `nodemon.json` for Nodemon settings
-  - Add ignore for changes in `client`
+  - Add ignore for changes in `client` (already handled by CRA)
 - `Blog` Schema
   - `createdAt` > `created`
 - Some code cleanups

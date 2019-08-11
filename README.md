@@ -9,7 +9,7 @@ This repository is for exploring advanced node concepts for production deploymen
 - Run scripts with:
   - `yarn dev`
   - `yarn build`
-  - `yanr start`
+  - `yarn start`
 
 ### Updates in server
 

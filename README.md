@@ -16,7 +16,7 @@ This repository is for exploring advanced node concepts for production deploymen
 - Upgrade all dependencies to latest
 - Switch to using `yarn` instead of `npm`
   - `package-json.lock` > `yarn.lock`
-- Required versions set in `.package.json`:
+- Required versions set in `package.json`:
   - `yarn`: `^1.17.0`
   - `node`: `^12.7.0`
 - Add support for `module-alias` to allow aliasing of modules in `require()`
@@ -34,9 +34,9 @@ This repository is for exploring advanced node concepts for production deploymen
 - Upgrade all dependencies to latest
 - Switch to using `yarn` instead of `npm`
   - `package-json.lock` > `yarn.lock`
-- Required versions set in `.package.json`:
+- Required versions set in `package.json`:
   - `yarn`: `^1.17.0`
   - `node`: `^12.7.0`
-- Add `jsconfig.json` to support module path shortcut to `src`
+- Add `jsconfig.json` to support module path alias directly starting from `src`
 - Remove semicolons in `.js`
 - Some code cleanups

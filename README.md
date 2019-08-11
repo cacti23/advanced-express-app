@@ -1,3 +1,34 @@
 # Advanced Node Production
 
 This repository is for exploring advanced node concepts for production deployment. This is a full-blown node blog application with authentication, react-client, and MongoDB.
+
+## Changelog
+
+### Updates in server
+
+- Upgrade all dependencies to latest
+- Switch to using `yarn` instead of `npm`
+  - `package-json.lock` > `yarn.lock`
+- Required versions set in `.package.json`:
+  - `yarn`: `^1.17.0`
+  - `node`: `^12.7.0`
+- Add support for `module-alias`
+- Switch to `.env` files for managing keys
+- Remove semicolons in `.js`
+- Add `nodemon.json` for Nodemon settings
+  - Add ignore for changes in `client`
+- `Blog` Schema
+  - `createdAt` > `created`
+- Some code cleanups
+
+### Updates in `client`
+
+- Upgrade all dependencies to latest
+- Switch to using `yarn` instead of `npm`
+  - `package-json.lock` > `yarn.lock`
+- Required versions set in `.package.json`:
+  - `yarn`: `^1.17.0`
+  - `node`: `^12.7.0`
+- Add `jsconfig.json` to support module path shortcut to `src`
+- Remove semicolons in `.js`
+- Some code cleanups

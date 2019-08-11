@@ -2,7 +2,7 @@
   "name": "advanced-node-production-client",
   "version": "1.0.0",
   "private": true,
-  "author": "maevadevs (https://github.com/maevadevs)",
+  "author": "",
   "license": "MIT",
   "engines": {
     "node": "^12.7.0",

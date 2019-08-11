@@ -2,7 +2,7 @@
   "name": "advanced-node-production",
   "version": "1.0.0",
   "description": "A Node/React blog application for production use",
-  "author": "maevadevs (https://github.com/maevadevs)",
+  "author": "",
   "license": "MIT",
   "main": "index.js",
   "engines": {

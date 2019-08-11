@@ -4,6 +4,13 @@ This repository is for exploring advanced node concepts for production deploymen
 
 ## Changelog
 
+- **Make sure to setup your keys in a `.env` file in root**
+- **Make sure to run `yarn install` to install all dependencies**
+- Run scripts with:
+  - `yarn dev`
+  - `yarn build`
+  - `yar start`
+
 ### Updates in server
 
 - Upgrade all dependencies to latest

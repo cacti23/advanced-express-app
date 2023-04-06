@@ -27,12 +27,15 @@ const app = express();
 
 // Server middleware
 app.use(bodyParser.json());
+// cookie session is responsible for maintaining a session on incoming request (put some identifying data on the cookie)
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
     keys: [cookieKey],
   })
 );
+
+// passport -> to handle authentication inside our app (google oauth)
 app.use(passport.initialize());
 app.use(passport.session());
 

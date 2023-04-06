@@ -5,6 +5,11 @@
   "author": "",
   "license": "MIT",
   "main": "index.js",
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./tests/setup.js"
+    ]
+  },
   "engines": {
     "node": "^12.7.0",
     "yarn": "^1.17.0"
@@ -22,7 +27,8 @@
     "client": "yarn --cwd client start",
     "dev": "concurrently \"yarn server\" \"yarn client\"",
     "build": "yarn --cwd client install && yarn --cwd client build",
-    "heroku-postbuild": "yarn build"
+    "heroku-postbuild": "yarn build",
+    "test": "jest --testEnvironment=node"
   },
   "dependencies": {
     "aws-sdk": "^2.188.0",

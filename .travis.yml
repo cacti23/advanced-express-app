@@ -13,9 +13,9 @@ cache:
     - node_modules
     - client/node_modules
 install:
-  - npm install
-  - npm run build
+  - yarn install --frozen-lockfile
+  - yarn run build
 script:
-  - nohup npm run start &
+  - nohup yarn run start &
   - sleep 10
-  - npm run test
+  - yarn run test

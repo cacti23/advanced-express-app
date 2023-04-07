@@ -28,7 +28,8 @@
     "dev": "concurrently \"yarn server\" \"yarn client\"",
     "build": "yarn --cwd client install && yarn --cwd client build",
     "heroku-postbuild": "yarn build",
-    "test": "jest --forceExit --testEnvironment=node"
+    "test": "jest --testEnvironment=node--testEnvironment=node",
+    "test:ci": "jest --runInBand --detectOpenHandles --forceExit --testEnvironment=node"
   },
   "dependencies": {
     "aws-sdk": "^2.188.0",

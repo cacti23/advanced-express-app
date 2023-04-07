@@ -25,4 +25,4 @@ install:
 script:
   - nohup yarn run start &
   - sleep 10
-  - yarn run test
+  - yarn run test:ci

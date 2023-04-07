@@ -4,9 +4,7 @@ node_js:
 dist: trusty
 services:
   - mongodb
-  - redis-server
-env:
-  - CHROMIUM=true
+  - redis
 cache:
   yarn: true
   directories:
@@ -14,7 +12,6 @@ cache:
     - client/node_modules
 before_install:
   - npm install -g yarn@1.22.19
-  - PUPPETEER_PRODUCT=firefox npm install
 install:
   - yarn install --frozen-lockfile
   - yarn run build

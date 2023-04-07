@@ -5,6 +5,7 @@ dist: trusty
 services:
   - mongodb
   - redis
+  - xvfb
 cache:
   yarn: true
   directories:

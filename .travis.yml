@@ -12,12 +12,9 @@ cache:
     - node_modules
     - client/node_modules
 install:
-  - npm ci
-  - npm run build
-before_script:
-  - sleep 10
-  - mongo test_db --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+  - yarn install
+  - yarn build
 script:
-  - nohup npm run start &
+  - nohup yarn start &
   - sleep 3
-  - npm run test
+  - yarn test

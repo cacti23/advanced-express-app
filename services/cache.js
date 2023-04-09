@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 const redis = require("redis");
-const url = "redis://127.0.0.1:6379";
-const client = redis.createClient(url);
+const keys = require("../config/keys");
+// const url = "redis://127.0.0.1:6379";
+const client = redis.createClient(keys.redisUrl);
 const util = require("util");
 
 // client.hget takes callback but we use promisify to change

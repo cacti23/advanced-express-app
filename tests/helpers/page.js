@@ -4,7 +4,10 @@ const userFactory = require("../factories/userFactory");
 
 class CustomPage {
   static async build() {
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({
+      headless: true,
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    });
 
     const page = await browser.newPage();
     const customPage = new CustomPage(page);
@@ -39,7 +42,7 @@ class CustomPage {
 
     await this.page.setCookie(...fakeCookie);
 
-    await this.page.goto("localhost:3000/blogs");
+    await this.goto("http://localhost:3000/blogs");
 
     // page will not be finished reloading hence logout button cannot be found to address this check the below code line
     // this code will wait now util the logout button is not visible

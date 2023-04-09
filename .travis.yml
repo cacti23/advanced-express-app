@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - "12"
+dist: trusty
+addons:
+  chrome: stable
+services:
+  - mongodb
+  - redis
+cache:
+  yarn: true
+  directories:
+    - node_modules
+    - client/node_modules
+before_install:
+  - npm install -g yarn@1.22.19
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+
+install:
+  - yarn install --frozen-lockfile
+  - yarn build
+script:
+  - nohup yarn start &
+  - sleep 15
+  - yarn test:ci

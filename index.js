@@ -20,7 +20,7 @@ const setupAuthRoutes = require("@routes/authRoutes");
 const setupBlogRoutes = require("@routes/blogRoutes");
 
 // Server and DB Settings
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 mongoose.Promise = global.Promise;
 mongoose.connect(mongoURI, { useNewUrlParser: true });
 const app = express();
@@ -44,8 +44,9 @@ setupAuthRoutes(app);
 setupBlogRoutes(app);
 
 // Production-only settings
-if (["production"].includes(process.env.NODE_ENV)) {
+if (["production", "ci"].includes(process.env.NODE_ENV)) {
   app.use(express.static("client/build"));
+
   app.get("*", (req, res) =>
     res.sendFile(path.resolve("client", "build", "index.html"))
   );

@@ -7,7 +7,6 @@ addons:
 services:
   - mongodb
   - redis
-  - xvfb
 cache:
   yarn: true
   directories:
@@ -15,10 +14,15 @@ cache:
     - client/node_modules
 before_install:
   - npm install -g yarn@1.22.19
+  - sudo apt-get update
+  - sudo apt-get install -y libgbm-dev
 install:
   - yarn install --frozen-lockfile
-  - yarn run build
+  - yarn build
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
 script:
-  - nohup yarn run start &
+  - nohup yarn start &
   - sleep 10
-  - yarn run test:ci
+  - yarn test:ci

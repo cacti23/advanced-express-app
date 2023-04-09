@@ -42,7 +42,7 @@ class CustomPage {
 
     await this.page.setCookie(...fakeCookie);
 
-    await page.goto("http://localhost:3000/blogs");
+    await this.goto("http://localhost:3000/blogs");
 
     // page will not be finished reloading hence logout button cannot be found to address this check the below code line
     // this code will wait now util the logout button is not visible

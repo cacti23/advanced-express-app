@@ -1,42 +1,28 @@
-# Advanced Node Production
+Hey there! Welcome to the Advanced Node (2023) repository 🎉
 
-This repository is for exploring advanced node concepts for production deployment. This is a full-blown node blog application with authentication, react-client, and MongoDB.
+We're excited to explore advanced node concepts for production deployment in this full-blown node blog application! 🚀
 
-## Changelog
+This project is equipped with authentication, react-client, and MongoDB. And the best part? All the code is working and updated, as it was completed in 2023 🙌
 
-- **Make sure to setup your keys in a `.env` file in root**
-- **Make sure to run `yarn install` to install all dependencies**
-- Run scripts with:
-  - `yarn dev`
-  - `yarn build`
-  - `yarn start`
+## Changelog 📝
 
-### Updates in server
+Before we get started, make sure to setup your keys in a `.env` file in root and run `yarn install` to install all dependencies.
 
-- Upgrade all dependencies to latest
-- Switch to using `yarn` instead of `npm`
-  - `package-json.lock` > `yarn.lock`
-- Required versions set in `package.json`:
-  - `yarn`: `^1.17.0`
-  - `node`: `^12.7.0`
-- Add support for `module-alias` to allow aliasing of modules in `require()`
-- Switch to `.env` files for managing keys
-  - Check `.env.placeholder` for setup
-- Remove semicolons in `.js`
-- Add `nodemon.json` for Nodemon settings
-  - Add ignore for changes in `client` (already handled by CRA)
-- `Blog` Schema
-  - `createdAt` > `created`
-- Some code cleanups
+Now let's dive into the exciting updates we've made:
 
-### Updates in `client`
+### Updates in server 💻
 
-- Upgrade all dependencies to latest
-- Switch to using `yarn` instead of `npm`
-  - `package-json.lock` > `yarn.lock`
-- Required versions set in `package.json`:
-  - `yarn`: `^1.17.0`
-  - `node`: `^12.7.0`
-- Add `jsconfig.json` to support module path alias directly starting from `src`
-- Remove semicolons in `.js`
-- Some code cleanups
+We've upgraded all dependencies to the latest versions and switched to using `yarn` instead of `npm`. We've also added support for `module-alias` to allow aliasing of modules in `require()` and switched to `.env` files for managing keys. Plus, we've made some code cleanups to ensure a smooth and efficient experience.
+
+### Updates in `client` 💻
+
+We've also upgraded all dependencies to the latest versions and switched to using `yarn` instead of `npm`. We've added `jsconfig.json` to support module path alias directly starting from `src`. And just like with the server, we've made some code cleanups to ensure a seamless experience.
+
+We've even added some new branches with updated code for each section so you can explore even further:
+
+- **_implement-redis_** 🚀
+- **_implement-headless-browser-testing_** 🕸️
+- **_implement/ci-cd_** 🤖
+- **_implement-scalable-image-s3-upload_** 📸
+
+Exciting, right? Let's get started by running `yarn dev`, `yarn build`, or `yarn start` to see all these updates in action! 💪

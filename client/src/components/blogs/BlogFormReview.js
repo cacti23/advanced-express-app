@@ -1,25 +1,27 @@
 // BlogFormReview shows users their form inputs for review
-import _ from 'lodash'
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import _ from "lodash";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-import formFields from 'components/blogs/formFields'
-import { submitBlog } from 'actions'
+import formFields from "components/blogs/formFields";
+import { submitBlog } from "actions";
 
 class BlogFormReview extends Component {
-  renderFields () {
-    const { formValues } = this.props
+  state = { file: null };
+
+  renderFields() {
+    const { formValues } = this.props;
     return _.map(formFields, ({ name, label }) => (
       <div key={name}>
         <label>{label}</label>
         <div>{formValues[name]}</div>
       </div>
-    ))
+    ));
   }
 
-  renderButtons () {
-    const { onCancel } = this.props
+  renderButtons() {
+    const { onCancel } = this.props;
     return (
       <div>
         <button
@@ -33,26 +35,38 @@ class BlogFormReview extends Component {
           <i className="material-icons right">email</i>
         </button>
       </div>
-    )
+    );
   }
 
-  onSubmit (e) {
-    e.preventDefault()
-    const { dispatch, history, formValues } = this.props
-    dispatch(submitBlog(formValues, history))
+  onSubmit(e) {
+    e.preventDefault();
+    const { dispatch, history, formValues } = this.props;
+    dispatch(submitBlog(formValues, this.state.file, history));
+  }
+
+  onFileChange(event) {
+    this.setState({ file: event.target.files[0] });
   }
 
   render() {
     return (
-      <form onSubmit={e => this.onSubmit(e)}>
+      <form onSubmit={(e) => this.onSubmit(e)}>
         <h5>Please confirm your entries</h5>
         {this.renderFields()}
+
+        <h5>Add An Image</h5>
+        <input
+          onChange={this.onFileChange.bind(this)}
+          type="file"
+          accept="image/*"
+        />
+
         {this.renderButtons()}
       </form>
-    )
+    );
   }
 }
 
-const mapStateToProps = state => ({ formValues: state.form.blogForm.values })
+const mapStateToProps = (state) => ({ formValues: state.form.blogForm.values });
 
-export default connect(mapStateToProps)(withRouter(BlogFormReview))
+export default connect(mapStateToProps)(withRouter(BlogFormReview));

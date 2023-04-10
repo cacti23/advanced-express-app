@@ -12,17 +12,24 @@ Now let's dive into the exciting updates we've made:
 
 ### Updates in server 💻
 
-We've upgraded all dependencies to the latest versions and switched to using `yarn` instead of `npm`. We've also added support for `module-alias` to allow aliasing of modules in `require()` and switched to `.env` files for managing keys. Plus, we've made some code cleanups to ensure a smooth and efficient experience.
+- Upgraded all dependencies to the latest versions
+- Switched to using yarn instead of npm
+- Added support for module-alias to allow aliasing of modules in `require()`
+- Switched to `.env` files for managing keys
+- Made some code cleanups to ensure a smooth and efficient experience
 
-### Updates in `client` 💻
+### Updates in client 💻
 
-We've also upgraded all dependencies to the latest versions and switched to using `yarn` instead of `npm`. We've added `jsconfig.json` to support module path alias directly starting from `src`. And just like with the server, we've made some code cleanups to ensure a seamless experience.
+- Upgraded all dependencies to the latest versions
+- Switched to using yarn instead of npm
+- Added `jsconfig.json` to support module path alias directly starting from `src`
+- Made some code cleanups to ensure a seamless experience
 
 We've even added some new branches with updated code for each section so you can explore even further:
 
-- **_implement-redis_** 🚀
-- **_implement-headless-browser-testing_** 🕸️
-- **_implement/ci-cd_** 🤖
-- **_implement-scalable-image-s3-upload_** 📸
+- `implement-redis` 🚀
+- `implement-headless-browser-testing` 🕸️
+- `implement/ci-cd` 🤖
+- `implement-scalable-image-s3-upload` 📸
 
 Exciting, right? Let's get started by running `yarn dev`, `yarn build`, or `yarn start` to see all these updates in action! 💪
